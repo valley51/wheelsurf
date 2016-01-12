@@ -1,0 +1,281 @@
+html, body {
+  height: 100%;
+  min-height: 100%; }
+
+html {
+  font-size: 16px; }
+  @media (max-width: 320px) {
+    html {
+      font-size: 14px; } }
+
+body {
+  font-family: "Microsoft Yahei", sans-serif;
+  background-color: #fe4c0b; }
+
+.wrapper {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 0;
+  padding-right: 0;
+  position: relative;
+  padding-bottom: 2rem;
+  min-height: 100%; }
+  .wrapper::after {
+    content: "";
+    display: table;
+    clear: both; }
+
+.head img {
+  width: 100%; }
+
+a, a:hover, a:active, a:focus, a:active {
+  text-decoration: none; }
+
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none; }
+
+@keyframes wheel {
+  0% {
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(360deg); } }
+.main {
+  padding-top: 2.8rem;
+  position: relative;
+  margin-top: -2%; }
+  .main .award-list {
+    position: absolute;
+    top: 0;
+    width: 100%; }
+    .main .award-list .top-border {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 87.33333%;
+      height: 6px;
+      background-color: rgba(0, 0, 0, 0.5);
+      border-radius: 0.25rem; }
+    .main .award-list .item-wrapper {
+      position: absolute;
+      top: 3px;
+      width: 100%;
+      z-index: 1; }
+    .main .award-list .award-collapse {
+      overflow: hidden;
+      height: 26px;
+      width: 83.86667%;
+      font-size: .8rem;
+      padding: 0.3rem 7.46667% 0;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      background-color: #fff;
+      display: block; }
+      .main .award-list .award-collapse span {
+        font-size: .9rem;
+        color: #823309;
+        text-decoration: underline; }
+      .main .award-list .award-collapse span:first-child {
+        color: #e9591f;
+        text-decoration: none; }
+      .main .award-list .award-collapse span:nth-child(2) {
+        float: right; }
+    .main .award-list .award-expand {
+      overflow: hidden;
+      max-height: 0;
+      margin: auto;
+      width: 83.86667%;
+      background-color: #fff; }
+    .main .award-list .bottom-border {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 83.86667%;
+      height: .4rem;
+      background: url(../img/bottom-border.png) no-repeat center 0/contain; }
+  .main .background {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    z-index: -1;
+    max-height: 100%; }
+  .main p.timer {
+    color: #fff;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    margin-bottom: 0; }
+    .main p.timer span {
+      font-weight: bold;
+      color: #632409; }
+  .main .wheel-container {
+    position: relative; }
+    .main .wheel-container img.wheel {
+      width: 100%; }
+    .main .wheel-container .wheel-rotate {
+      animation: wheel .5s linear infinite; }
+    .main .wheel-container img.handle {
+      position: absolute;
+      left: 50%;
+      top: 47%;
+      transform: translateX(-50%) translateY(-50%);
+      width: 32%; }
+    .main .wheel-container img.bottom {
+      position: absolute;
+      width: 37.2%;
+      bottom: 2%;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: -1; }
+  .main a.share {
+    margin-top: .3rem;
+    letter-spacing: 1px;
+    width: 81.6%;
+    color: #9c3009;
+    background-color: #ffda0a;
+    border-color: transparent;
+    padding: 0.5rem 0;
+    font-size: 1.2rem;
+    line-height: 1.2;
+    border-radius: 0.4rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    background-image: linear-gradient(to right, #ffb70a, #ffda0a 50%, #ffb70a);
+    background-repeat: no-repeat;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFFFB70A', endColorstr='#FFFFB70A', GradientType=1);
+    box-shadow: 0 -3px #ffe298, 0 3px rgba(0, 0, 0, 0.3); }
+    .main a.share:hover {
+      color: #9c3009;
+      background-color: #d6b600;
+      border-color: transparent; }
+    .main a.share:focus, .main a.share.focus {
+      color: #9c3009;
+      background-color: #d6b600;
+      border-color: transparent; }
+    .main a.share:active, .main a.share.active, .open > .main a.share.dropdown-toggle {
+      color: #9c3009;
+      background-color: #d6b600;
+      border-color: transparent;
+      background-image: none; }
+      .main a.share:active:hover, .main a.share:active:focus, .main a.share:active.focus, .main a.share.active:hover, .main a.share.active:focus, .main a.share.active.focus, .open > .main a.share.dropdown-toggle:hover, .open > .main a.share.dropdown-toggle:focus, .open > .main a.share.dropdown-toggle.focus {
+        color: #9c3009;
+        background-color: #b29700;
+        border-color: transparent; }
+    .main a.share.disabled:focus, .main a.share.disabled.focus, .main a.share:disabled:focus, .main a.share:disabled.focus {
+      background-color: #ffda0a;
+      border-color: transparent; }
+    .main a.share.disabled:hover, .main a.share:disabled:hover {
+      background-color: #ffda0a;
+      border-color: transparent; }
+  .main a.rule {
+    padding: 1rem .3rem;
+    color: #fff;
+    font-size: .9rem;
+    position: absolute;
+    right: 0;
+    top: .5rem;
+    width: 1.6rem;
+    line-height: 1rem;
+    background: url(../img/rule-bg.png) no-repeat 0/100%; }
+  .main p.remain-time {
+    font-size: .8rem;
+    line-height: 1rem;
+    position: absolute;
+    top: 1rem;
+    right: 2rem;
+    width: 26.66667%;
+    height: 5rem;
+    padding: 1rem;
+    background: url(../img/bubble.png) no-repeat 0/contain; }
+    .main p.remain-time span {
+      color: #ffb138; }
+
+.mask {
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 2; }
+  .mask .rule {
+    display: none;
+    position: absolute;
+    margin-top: 25.6%;
+    padding: 24.66667% 10.66667% 0 12%;
+    width: 84.53333%;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    background: url(../img/rule-desc-bg.png) no-repeat top center/cover;
+    border-radius: 0.25rem;
+    color: #fff;
+    font-size: .8rem; }
+    .mask .rule li {
+      line-height: 1.8; }
+    .mask .rule li:before {
+      content: '1';
+      display: block;
+      width: 1.6rem;
+      height: 1.6rem;
+      position: absolute;
+      background: url(../img/rule-list-bg.png) no-repeat 0 0/contain;
+      left: 4.66667%;
+      margin-top: .2rem;
+      padding-left: .5rem;
+      color: #f64f57;
+      font-size: .6rem; }
+    .mask .rule li:nth-child(2):before {
+      content: '2'; }
+    .mask .rule li:nth-child(3):before {
+      content: '3'; }
+    .mask .rule li:nth-child(4):before {
+      content: '4'; }
+    .mask .rule a.know {
+      margin-top: 1rem;
+      margin-bottom: 2rem;
+      letter-spacing: 1px;
+      width: 54.65587%;
+      color: #9c3009;
+      background-color: #ffda0a;
+      border-color: transparent;
+      padding: 0.5rem 0;
+      font-size: 1.2rem;
+      line-height: 1.2;
+      border-radius: 0.4rem;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      background-image: linear-gradient(to right, #ffb70a, #ffda0a 50%, #ffb70a);
+      background-repeat: no-repeat;
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFFFB70A', endColorstr='#FFFFB70A', GradientType=1);
+      box-shadow: 0 -3px #ffe298, 0 3px rgba(0, 0, 0, 0.3); }
+      .mask .rule a.know:hover {
+        color: #9c3009;
+        background-color: #d6b600;
+        border-color: transparent; }
+      .mask .rule a.know:focus, .mask .rule a.know.focus {
+        color: #9c3009;
+        background-color: #d6b600;
+        border-color: transparent; }
+      .mask .rule a.know:active, .mask .rule a.know.active, .open > .mask .rule a.know.dropdown-toggle {
+        color: #9c3009;
+        background-color: #d6b600;
+        border-color: transparent;
+        background-image: none; }
+        .mask .rule a.know:active:hover, .mask .rule a.know:active:focus, .mask .rule a.know:active.focus, .mask .rule a.know.active:hover, .mask .rule a.know.active:focus, .mask .rule a.know.active.focus, .open > .mask .rule a.know.dropdown-toggle:hover, .open > .mask .rule a.know.dropdown-toggle:focus, .open > .mask .rule a.know.dropdown-toggle.focus {
+          color: #9c3009;
+          background-color: #b29700;
+          border-color: transparent; }
+      .mask .rule a.know.disabled:focus, .mask .rule a.know.disabled.focus, .mask .rule a.know:disabled:focus, .mask .rule a.know:disabled.focus {
+        background-color: #ffda0a;
+        border-color: transparent; }
+      .mask .rule a.know.disabled:hover, .mask .rule a.know:disabled:hover {
+        background-color: #ffda0a;
+        border-color: transparent; }
+
+/*# sourceMappingURL=main.css.map */
