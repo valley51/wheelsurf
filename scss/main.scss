@@ -2,159 +2,243 @@
 
 @import "../node_modules/bootstrap/scss/variables";
 @import "../node_modules/bootstrap/scss/mixins";
-html,body{
+
+html, body {
   height: 100%;
   min-height: 100%;
 }
-html{
-  font-size:16px;
-  @media (max-width: 320px){
+
+html {
+  font-size: 16px;
+  @media (max-width: 320px) {
     font-size: 14px;
   }
 }
-body{
+
+body {
   font-family: "Microsoft Yahei", sans-serif;
   background-color: #fe4c0b;
+  overflow-x: hidden;
+  max-width: 100%;
 }
-.wrapper{
+
+.wrapper {
   @include make-container(0);
   position: relative;
   padding-bottom: 2rem;
   min-height: 100%;
 }
-.head{
-  img{
+
+.head {
+  img {
     width: 100%;
   }
 }
-a,a:hover,a:active,a:focus,a:active{
+
+a, a:hover, a:active, a:focus, a:active {
   text-decoration: none;
 }
-ul{
+
+ul {
   padding: 0;
   margin: 0;
   list-style: none;
 }
 
+/**转盘无限转动**/
 @keyframes wheel {
   0% {
     transform: rotate(0deg);
   }
-  100%{
+  100% {
     transform: rotate(360deg);
   }
 }
-.main{
+
+/**主内容区**/
+.main {
   padding-top: 2.8rem;
   position: relative;
   margin-top: -2%;
-  .award-list{
+  /**中奖信息**/
+  .award-list {
     position: absolute;
     top: 0;
     width: 100%;
-    .top-border{
+    .top-border {
       @include center-block();
       width: 655/750*100%;
       height: 6px;
-      background-color: rgba(0,0,0,.5);
+      background-color: rgba(0, 0, 0, .5);
       @include border-radius();
     }
-    .item-wrapper{
+    .item-wrapper {
       position: absolute;
       top: 3px;
       width: 100%;
       z-index: 1;
     }
-    .award-collapse{
+    /**中奖名单折叠状态**/
+    .award-collapse {
       overflow: hidden;
-      height: 26px;
+      height: 1.6rem;
       width: 629/750*100%;
       font-size: .8rem;
       padding: .3rem 56/750*100% 0;
       @include center-block();
       background-color: #fff;
       display: block;
-      span{
+      span {
         font-size: .9rem;
         color: #823309;
         text-decoration: underline;
       }
-      span:first-child{
+      span:first-child {
         color: #e9591f;
         text-decoration: none;
       }
-      span:nth-child(2){
+      span:nth-child(2) {
         float: right;
       }
     }
-    .award-expand{
+    /**中奖名单展开状态**/
+    .award-expand {
+      display: none;
       overflow: hidden;
       max-height: 0;
       margin: auto;
       width: 629/750*100%;
       background-color: #fff;
+      padding: .5rem .5rem 0;
+
+      .input {
+        padding-bottom: .5rem;
+        border-bottom: 1px dashed #d6d6d6;
+        margin-bottom: .5rem;
+      }
+      input {
+        border: 1px solid #f26a0b;
+        display: inline-block;
+        padding: .3rem .8rem;
+        font-size: .7rem;
+        //line-height: .7rem;
+        width: 420/580*100%;
+        outline: none;
+      }
+      .query {
+        @include button-variant(#9c3009, #ffda0a, transparent);
+        @include button-size(.2rem, 0, .8rem, 1.2, .4rem);
+        @include gradient-horizontal-three-colors(#ffb70a, #ffda0a, 50%, #ffb70a);
+        box-shadow: 0 -2px #ffe298, 0 2px rgba(0, 0, 0, .3);
+        display: inline-block;
+        height: 1.7rem;
+        @media (max-width: 320px) {
+          height: 1.8rem;
+        }
+        line-height: 1.3rem;
+        float: right;
+        width: 140/580*100%;
+      }
+
+      table {
+        font-size: .9rem;
+        width: 100%;
+        line-height: 1.8rem;
+      }
+      th {
+        color: #b3ada6;
+        font-weight: normal;
+        text-align: center;
+      }
+      th, tr {
+        width: 50%;
+      }
+      td:nth-child(1) {
+        text-align: center;
+        color: #494643;
+      }
+      td:nth-child(2) {
+        color: #e9591f;
+        padding-left: 1rem;
+      }
+
+      i.collapse {
+        display: block;
+        text-align: center;
+        margin-top: .3rem;
+      }
+      i.collapse:after {
+        content: '';
+        display: inline-block;
+        border-top: 1px solid #b3ada6;
+        border-left: 1px solid #b3ada6;
+        width: 1rem;
+        height: 1rem;
+        transform: rotate(45deg);
+        vertical-align: bottom;
+      }
     }
-    .bottom-border{
+    .bottom-border {
       @include center-block();
       width: 629/750*100%;
       height: .4rem;
-      background: url(../img/bottom-border.png) no-repeat center 0/contain;
+      background: url(../img/bottom-border.png) no-repeat center 0/100%;
     }
   }
 
-  .background{
+  .background {
     width: 100%;
     position: absolute;
     top: 0;
     z-index: -1;
     max-height: 100%;
   }
-  p.timer{
+  p.timer {
     //margin-top: 2.3rem;
     color: #fff;
     font-size: 1rem;
     letter-spacing: 1px;
     margin-bottom: 0;
-    span{
+    span {
       font-weight: bold;
       color: #632409;
     }
   }
-  .wheel-container{
+  .wheel-container {
     position: relative;
-    img.wheel{
+    img.wheel {
       width: 100%;
     }
-    .wheel-rotate{
+    .wheel-rotate {
       animation: wheel .5s linear infinite;
     }
-    img.handle{
+    img.handle {
       position: absolute;
       left: 50%;
       top: 47%;
       transform: translateX(-50%) translateY(-50%);
       width: 240/750*100%;
     }
-    img.bottom{
+    img.bottom {
       position: absolute;
       width: 279/750*100%;
-      bottom:2%;
+      bottom: 2%;
       left: 50%;
       transform: translateX(-50%);
       z-index: -1;
     }
   }
-  a.share{
+  a.share {
     margin-top: .3rem;
     letter-spacing: 1px;
     width: 612/750*100%;
-    @include button-variant(#9c3009,#ffda0a,transparent);
-    @include button-size(.5rem,0,1.2rem,1.2,.4rem);
+    @include button-variant(#9c3009, #ffda0a, transparent);
+    @include button-size(.5rem, 0, 1.2rem, 1.2, .4rem);
     @include center-block();
-    @include gradient-horizontal-three-colors(#ffb70a,#ffda0a,50%,#ffb70a);
-    box-shadow: 0 -3px  #ffe298, 0 3px rgba(0,0,0,.3);
+    @include gradient-horizontal-three-colors(#ffb70a, #ffda0a, 50%, #ffb70a);
+    box-shadow: 0 -3px #ffe298, 0 3px rgba(0, 0, 0, .3);
   }
-  a.rule{
+  a.rule {
     padding: 1rem .3rem;
     color: #fff;
     font-size: .9rem;
@@ -165,7 +249,7 @@ ul{
     line-height: 1rem;
     background: url(../img/rule-bg.png) no-repeat 0/100%;
   }
-  p.remain-time{
+  p.remain-time {
     font-size: .8rem;
     line-height: 1rem;
     position: absolute;
@@ -175,21 +259,22 @@ ul{
     height: 5rem;
     padding: 1rem;
     background: url(../img/bubble.png) no-repeat 0/contain;
-    span{
+    span {
       color: #ffb138;
     }
   }
 }
-.mask{
+
+.mask {
   display: none;
   position: absolute;
   width: 100%;
   height: 100%;
   top: 0;
   left: 0;
-  background-color: rgba(0,0,0,.5);
+  background-color: rgba(0, 0, 0, .5);
   z-index: 2;
-  .rule{
+  .rule {
     display: none;
     position: absolute;
     margin-top: 192/750*100%;
@@ -197,17 +282,17 @@ ul{
     width: 634/750*100%;
     margin-left: auto;
     margin-right: auto;
-    left:0;
-    right:0;
+    left: 0;
+    right: 0;
     background: url(../img/rule-desc-bg.png) no-repeat top center/cover;
     @include border-radius();
     color: #fff;
     font-size: .8rem;
-    li{
+    li {
       line-height: 1.8;
       //text-align: justify;
     }
-    li:before{
+    li:before {
       content: '1';
       display: block;
       width: 1.6rem;
@@ -220,25 +305,43 @@ ul{
       color: #f64f57;
       font-size: .6rem;
     }
-    li:nth-child(2):before{
+    li:nth-child(2):before {
       content: '2';
     }
-    li:nth-child(3):before{
+    li:nth-child(3):before {
       content: '3';
     }
-    li:nth-child(4):before{
+    li:nth-child(4):before {
       content: '4';
     }
-    a.know{
+    a.know {
       margin-top: 1rem;
       margin-bottom: 2rem;
       letter-spacing: 1px;
       width: 270/494*100%;
-      @include button-variant(#9c3009,#ffda0a,transparent);
-      @include button-size(.5rem,0,1.2rem,1.2,.4rem);
+      @include button-variant(#9c3009, #ffda0a, transparent);
+      @include button-size(.5rem, 0, 1.2rem, 1.2, .4rem);
       @include center-block();
-      @include gradient-horizontal-three-colors(#ffb70a,#ffda0a,50%,#ffb70a);
-      box-shadow: 0 -3px  #ffe298, 0 3px rgba(0,0,0,.3);
+      @include gradient-horizontal-three-colors(#ffb70a, #ffda0a, 50%, #ffb70a);
+      box-shadow: 0 -3px #ffe298, 0 3px rgba(0, 0, 0, .3);
+    }
+  }
+  .award {
+    display: none;
+    position: absolute;
+    margin: 326/750*100% auto 0;
+    width: 700/750*100%;
+    padding-top: 680/750*100%;
+    left: 0;
+    right: 0;
+    border-radius: .5rem;
+    overflow: hidden;
+    &>img{
+      display: none;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
     }
   }
 }
