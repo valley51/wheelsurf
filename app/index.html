@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <title>金猴送宝</title>
-    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
@@ -15,15 +15,14 @@
     </div>
     <div class="main">
         <img src="img/bg.jpg" class="img-fluid background">
-
         <div class="award-list">
             <span class="top-border"></span>
             <div class="item-wrapper">
                 <div class="award-collapse">13999999999 <span>抽中10元话费</span><span class="more">更多</span></div>
                 <div class="award-expand">
                     <div class="input">
-                        <input type="text">
-                        <a href="#">查询</a>
+                        <input type="text" maxlength="11" placeholder="请输入手机号">
+                        <a href="#" class="query text-xs-center">查询</a>
                     </div>
                     <div class="list-items">
                         <table>
@@ -34,7 +33,10 @@
                             <tr><td>13999999999</td><td>抽中10元话费</td></tr>
                             <tr><td>13999999999</td><td>抽中10元话费</td></tr>
                             <tr><td>13999999999</td><td>抽中10元话费</td></tr>
+                            <tr><td>13999999999</td><td>抽中10元话费</td></tr>
+                            <tr><td>13999999999</td><td>抽中10元话费</td></tr>
                         </table>
+                        <i class="collapse"></i>
                     </div>
                 </div>
                 <span class="bottom-border center-block"></span>
@@ -63,10 +65,14 @@
             </ul>
             <a href="#" class="know text-xs-center">我知道了</a>
         </div>
+        <div class="award">
+            <img src="img/award/cry.jpg" alt="" class="img-fluid prize-cry prize">
+            <img src="img/award/no-time.jpg" alt="" class="img-fluid prize-no-time prize">
+        </div>
     </div>
 </div>
 
-<script src="../node_modules/zepto/zepto.min.js"></script>
+<script src="js/zepto.min.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>

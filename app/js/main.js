@@ -1,9 +1,27 @@
+'use strict';
 $(function () {
     var wheel = $('.wheel');
-    var random = 0;  //for test
+    var mask = $('.mask');
+    var remain_time = $('.remain-time>span');
+    var times = 2;
+    var lock = false;
+
+    window.exp = remain_time;
 
     $('.handle').click(function () {
-        random += 1800 + Math.floor(Math.random() * 360);
+        if(lock){
+            return;
+        }
+        if(times<=0){
+            mask.show().find('.award').show().find('.prize-no-time').show();
+            return;
+        }
+        lock = true;
+        times --;
+        wheel.css({
+            transform: 'rotate(0deg)'
+        });
+        var random = 3600 - Math.floor(Math.random() * 45);
         //todo ajax
         /*$.post('/xxx', {
 
@@ -13,11 +31,21 @@ $(function () {
          wheel.addClass('wheel-rotate');*/
         wheel.animate({
             rotate: random + 'deg'
-        }, 5000, 'ease');
+        }, 6000, 'ease', function () {
+            setTimeout(function(){
+                mask.show().find('.award').show().find('.prize-cry').show();
+                lock = false;
+                remain_time.text(times + '次');
+            },500);
+        });
     });
+     mask.children('.award').click(function(){
+         $(this).hide().children('img').hide();
+         mask.hide();
+     });
 
     //活动规则
-    $('a.rule').click(function () {
+    $('a.rule').click(function (e) {
         $('.mask').show().find('.rule').show();
     });
     $('a.know').click(function () {
@@ -25,22 +53,26 @@ $(function () {
     });
 
     //中奖名单
-    $('.award-collapse').click(function () {
-        $(this).animate({
+    var collapse = $('.award-collapse'),
+        expand = $('.award-expand');
+    collapse.click(function () {
+        collapse.animate({
             height: '0'
         }, 300, 'linear', function () {
-            $('.award-expand').animate({
-                'max-height': '600px'
-            },3000)
+            collapse.hide();
+            expand.show().animate({
+                'max-height': '400px'
+            }, 1000);
         });
     });
-    $('.award-expand').click(function () {
-        $(this).animate({
+    $('.list-items').click(function () {
+        expand.animate({
             'max-height': '0'
-        },1000, 'linear', function(){
-            $('.award-collapse').animate({
-                'height': '26px'
-            },300);
+        }, 1000, 'linear', function () {
+            expand.hide();
+            collapse.show().animate({
+                'height': '1.6rem'
+            }, 300);
         })
     });
 
